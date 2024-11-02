@@ -36,6 +36,10 @@ public class CommandGenericHID {
     m_hid = new GenericHID(port);
   }
 
+  public CommandGenericHID(GenericHID hid) {
+    m_hid = hid;
+  }
+
   /**
    * Get the underlying GenericHID object.
    *

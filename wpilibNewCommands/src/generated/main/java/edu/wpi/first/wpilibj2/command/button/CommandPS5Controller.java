@@ -29,6 +29,11 @@ public class CommandPS5Controller extends CommandGenericHID {
     m_hid = new PS5Controller(port);
   }
 
+  public CommandPS5Controller(PS5Controller controller) {
+    super(controller);
+    m_hid = controller;
+  }
+
   /**
    * Get the underlying GenericHID object.
    *

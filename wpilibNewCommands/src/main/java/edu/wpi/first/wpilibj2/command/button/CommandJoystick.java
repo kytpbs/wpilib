@@ -26,6 +26,11 @@ public class CommandJoystick extends CommandGenericHID {
     m_hid = new Joystick(port);
   }
 
+  public CommandJoystick(Joystick joystick) {
+    super(joystick);
+    m_hid = joystick;
+  }
+
   /**
    * Get the underlying GenericHID object.
    *

@@ -29,6 +29,11 @@ public class CommandPS4Controller extends CommandGenericHID {
     m_hid = new PS4Controller(port);
   }
 
+  public CommandPS4Controller(PS4Controller hid) {
+    super(hid);
+    m_hid = hid;
+  }
+
   /**
    * Get the underlying GenericHID object.
    *

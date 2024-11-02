@@ -29,6 +29,11 @@ public class CommandStadiaController extends CommandGenericHID {
     m_hid = new StadiaController(port);
   }
 
+  public CommandStadiaController(StadiaController controller) {
+    super(controller);
+    m_hid = controller;
+  }
+
   /**
    * Get the underlying GenericHID object.
    *

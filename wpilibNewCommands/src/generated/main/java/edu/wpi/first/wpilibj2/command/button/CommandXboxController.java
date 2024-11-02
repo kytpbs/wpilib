@@ -29,6 +29,11 @@ public class CommandXboxController extends CommandGenericHID {
     m_hid = new XboxController(port);
   }
 
+  public CommandXboxController(XboxController controller) {
+    super(controller);
+    m_hid = controller;
+  }
+
   /**
    * Get the underlying GenericHID object.
    *
