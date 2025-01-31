@@ -22,6 +22,21 @@ public class InstantCommand extends FunctionalCommand {
     super(toRun, () -> {}, interrupted -> {}, () -> true, requirements);
   }
 
+  public Command andThen(Command next) {
+    var command =
+        new WrapperCommand(next) {
+          @Override
+          public void initialize() {
+            this.initialize();
+            next.initialize();
+          }
+        };
+
+    command.addRequirements(this.getRequirements());
+
+    return command;
+  }
+
   /**
    * Creates a new InstantCommand with a Runnable that does nothing. Useful only as a no-arg
    * constructor to call implicitly from subclass constructors.
