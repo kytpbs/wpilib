@@ -34,6 +34,17 @@ class InstantCommand : public CommandHelper<FunctionalCommand, InstantCommand> {
 
   InstantCommand(const InstantCommand& other) = default;
 
+    /**
+   * Decorates this command with a set of commands to run after it in sequence.
+   * Often more convenient/less-verbose than constructing a
+   * SequentialCommandGroup explicitly.
+   *
+   * @param next the commands to run next
+   * @return the decorated command
+   */
+  [[nodiscard]]
+  CommandPtr AndThen(CommandPtr&& next) &&;
+
   /**
    * Creates a new InstantCommand with a Runnable that does nothing.  Useful
    * only as a no-arg constructor to call implicitly from subclass constructors.
